@@ -30,7 +30,7 @@ public class GestProy {
 
     public void terminarProyecto(int numProyecto) {
         // TODO 31: Terminar proyecto
-
+        setProyecto(numProyecto,null);
     }
 
     public boolean puedeHaberMasProyectos() {

@@ -2,34 +2,28 @@ public class Equipo {
 
     private Trabajador lider;
 
-    private Trabajador participante1;
-    private Trabajador participante2;
-    private Trabajador participante3;
+    private Trabajador[] participantes = new Trabajador[Ctes.NUM_TRABAJADORES_EMPRESA];
+
+    private int numParticipantes = 0;
 
     public int getMaxNumeroParticipantes() {
         return Ctes.MAX_NUM_PARTICIPANTES_EQUIPO;
     }
 
     public Trabajador getParticipante(int numero) {
-        switch (numero) {
-            case 1: return participante1;
-            case 2: return participante2;
-            case 3: return participante3;
+        if (numero < 1 || numero > 8) {
+            return null;
         }
-        return null;
+        return participantes[numero - 1];
     }
 
     public void setParticipante(int numero, Trabajador trabajador) {
-        switch (numero) {
-            case 1: participante1 = trabajador; break;
-            case 2: participante2 = trabajador; break;
-            case 3: participante3 = trabajador; break;
-        }
+        participantes[numero - 1] = trabajador;
     }
 
     public boolean tieneLider() {
         // TODO 21: Saber si el equipo tiene líder
-        return false;
+        return lider != null;
     }
 
     public Trabajador getLider() {
